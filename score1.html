@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RUN TO WIN - Scorecard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{background:#111;color:white;font-family:Arial;text-align:center;}
+table{margin:auto;border-collapse:collapse;width:80%;}
+th,td{border:1px solid white;padding:10px;}
+button{padding:10px 20px;margin-top:20px;}
+</style>
+</head>
+<body>
+
+<h1>RUN TO WIN</h1>
+<h2>Your Score: <span id="last"></span></h2>
+
+<h2>Leaderboard</h2>
+<table>
+<tr><th>Rank</th><th>Name</th><th>Score</th></tr>
+<tbody id="board"></tbody>
+</table>
+
+<button onclick="again()">Play Again</button>
+
+<script>
+document.getElementById("last").innerText=
+localStorage.getItem("lastScore");
+
+let board=JSON.parse(localStorage.getItem("leaderboard"))||[];
+let body=document.getElementById("board");
+
+board.forEach((p,i)=>{
+ body.innerHTML+=`<tr>
+ <td>${i+1}</td>
+ <td>${p.name}</td>
+ <td>${p.score}</td>
+ </tr>`;
+});
+
+function again(){
+ window.location.href="index1.html";
+}
+</script>
+
+</body>
+</html>
