@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RUN TO WIN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:url("https://images.unsplash.com/photo-1589394815804-964ed0be2eb5") no-repeat center/cover;
+            font-family:Arial;
+            color:white;
+        }
+        .box{
+            background:rgba(0,0,0,0.8);
+            padding:40px;
+            border-radius:15px;
+            text-align:center;
+        }
+        h1{
+            font-size:50px;
+            color:gold;
+        }
+        input{
+            padding:10px;
+            font-size:18px;
+            margin-top:15px;
+            border-radius:5px;
+            border:none;
+        }
+        button{
+            padding:10px 20px;
+            font-size:18px;
+            margin-top:15px;
+            background:gold;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>RUN TO WIN</h1>
+    <p>Enter Your Name</p>
+    <input type="text" id="name" oninput="checkName()">
+    <br>
+    <button id="playBtn" onclick="startGame()">Play Game</button>
+</div>
+
+<script>
+function checkName(){
+    let val=document.getElementById("name").value;
+    document.getElementById("playBtn").style.display=
+    val.trim().length>0?"inline-block":"none";
+}
+function startGame(){
+    localStorage.setItem("playerName",
+    document.getElementById("name").value);
+    window.location.href="game1.html";
+}
+</script>
+
+</body>
+  </html>
